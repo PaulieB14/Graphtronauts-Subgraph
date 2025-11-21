@@ -1,0 +1,12 @@
+{
+  "arbitrum-one": {
+    "Split": {
+      "address": "0x71a7C47d35c294CbA1eD23b67310f1d766A4b1f8",
+      "startBlock": 401964810
+    },
+    "RewdSplitV1": {
+      "address": "0x70c444A09bfacCF826Ff319e8F12Aa97A17c5EF2",
+      "startBlock": 0
+    }
+  }
+}
