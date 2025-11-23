@@ -22,7 +22,7 @@ import {
   RoleGranted,
   RoleRevoked
 } from "../generated/schema"
-import { Address, BigInt } from "@graphprotocol/graph-ts"
+import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts"
 
 const REWARDS_GATEWAY = Address.fromString("0x71a7C47d35c294CbA1eD23b67310f1d766A4b1f8")
 const REWD_SPLIT_V1 = Address.fromString("0x70c444A09bfacCF826Ff319e8F12Aa97A17c5EF2")
@@ -38,9 +38,9 @@ function getSourceName(address: Address): string {
 }
 
 function getOrCreateRewardSource(address: Address, block: BigInt, timestamp: BigInt): RewardSource {
-  let source = RewardSource.load(address)
+  let source = RewardSource.load(address as Bytes)
   if (source == null) {
-    source = new RewardSource(address)
+    source = new RewardSource(address as Bytes)
     source.name = getSourceName(address)
     source.totalNativeReleased = BigInt.zero()
     source.totalTokenReleased = BigInt.zero()
