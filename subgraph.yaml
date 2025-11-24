@@ -10,44 +10,28 @@ dataSources:
     source:
       address: "0x71a7C47d35c294CbA1eD23b67310f1d766A4b1f8"
       abi: Split
-      startBlock: 401964810
+      startBlock: 401976211
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
       language: wasm/assemblyscript
       entities:
         - ERC20PaymentReleased
-        - Initialized
         - PayeeAdded
         - PaymentReceived
         - PaymentReleased
-        - RoleAdminChanged
-        - RoleGranted
-        - RoleRevoked
-        - RewardSource
-        - RewardAccount
-        - RewardAccountToken
-        - RewardPayee
       abis:
         - name: Split
           file: ./abis/Split.json
       eventHandlers:
         - event: ERC20PaymentReleased(indexed address,address,uint256)
           handler: handleERC20PaymentReleased
-        - event: Initialized(uint8)
-          handler: handleInitialized
         - event: PayeeAdded(address,uint256)
           handler: handlePayeeAdded
         - event: PaymentReceived(address,uint256)
           handler: handlePaymentReceived
         - event: PaymentReleased(address,uint256)
           handler: handlePaymentReleased
-        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
-          handler: handleRoleAdminChanged
-        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleGranted
-        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleRevoked
       file: ./src/split.ts
   - kind: ethereum
     name: RewdSplitV1
@@ -55,42 +39,26 @@ dataSources:
     source:
       address: "0x70c444A09bfacCF826Ff319e8F12Aa97A17c5EF2"
       abi: Split
-      startBlock: 0
+      startBlock: 401885456
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
       language: wasm/assemblyscript
       entities:
         - ERC20PaymentReleased
-        - Initialized
         - PayeeAdded
         - PaymentReceived
         - PaymentReleased
-        - RoleAdminChanged
-        - RoleGranted
-        - RoleRevoked
-        - RewardSource
-        - RewardAccount
-        - RewardAccountToken
-        - RewardPayee
       abis:
         - name: Split
           file: ./abis/Split.json
       eventHandlers:
         - event: ERC20PaymentReleased(indexed address,address,uint256)
           handler: handleERC20PaymentReleased
-        - event: Initialized(uint8)
-          handler: handleInitialized
         - event: PayeeAdded(address,uint256)
           handler: handlePayeeAdded
         - event: PaymentReceived(address,uint256)
           handler: handlePaymentReceived
         - event: PaymentReleased(address,uint256)
           handler: handlePaymentReleased
-        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
-          handler: handleRoleAdminChanged
-        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleGranted
-        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleRevoked
       file: ./src/split.ts

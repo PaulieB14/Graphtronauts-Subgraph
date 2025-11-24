@@ -1,17 +1,59 @@
-# Graph CLI generated artifacts
+# Dependencies
+node_modules/
+yarn.lock
+package-lock.json
+
+# Build outputs
 build/
 generated/
 
-# Dependency directories
-node_modules/
-jspm_packages/
+# Cache directories
+.cache/
+node_modules/.cache/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.test
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Logs
-logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
 
 # Optional npm cache directory
 .npm
@@ -19,16 +61,39 @@ yarn-error.log*
 # Optional eslint cache
 .eslintcache
 
-# dotenv environment variables file
-.env
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
 
-# Testing
-coverage
-coverage.json
+# Optional REPL history
+.node_repl_history
 
-# Typechain
-typechain
-typechain-types
+# Output of 'npm pack'
+*.tgz
 
-# Hardhat files
-cache
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Graph Protocol specific
+subgraph.yaml.bak
+networks.json.bak

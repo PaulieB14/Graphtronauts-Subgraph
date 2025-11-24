@@ -1,6 +1,16 @@
+type PayeeAdded @entity(immutable: true) {
+  id: Bytes!
+  contract: Bytes! # address of the contract that emitted the event
+  account: Bytes! # address
+  shares: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
 type ERC20PaymentReleased @entity(immutable: true) {
   id: Bytes!
-  source: RewardSource!
+  contract: Bytes! # address of the contract that emitted the event
   token: Bytes! # address
   to: Bytes! # address
   amount: BigInt! # uint256
@@ -9,28 +19,9 @@ type ERC20PaymentReleased @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type Initialized @entity(immutable: true) {
-  id: Bytes!
-  source: RewardSource!
-  version: Int! # uint8
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type PayeeAdded @entity(immutable: true) {
-  id: Bytes!
-  source: RewardSource!
-  account: Bytes! # address
-  shares: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
 type PaymentReceived @entity(immutable: true) {
   id: Bytes!
-  source: RewardSource!
+  contract: Bytes! # address of the contract that emitted the event
   from: Bytes! # address
   amount: BigInt! # uint256
   blockNumber: BigInt!
@@ -40,87 +31,10 @@ type PaymentReceived @entity(immutable: true) {
 
 type PaymentReleased @entity(immutable: true) {
   id: Bytes!
-  source: RewardSource!
+  contract: Bytes! # address of the contract that emitted the event
   to: Bytes! # address
   amount: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
-
-type RoleAdminChanged @entity(immutable: true) {
-  id: Bytes!
-  source: RewardSource!
-  role: Bytes! # bytes32
-  previousAdminRole: Bytes! # bytes32
-  newAdminRole: Bytes! # bytes32
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RoleGranted @entity(immutable: true) {
-  id: Bytes!
-  source: RewardSource!
-  role: Bytes! # bytes32
-  account: Bytes! # address
-  sender: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RoleRevoked @entity(immutable: true) {
-  id: Bytes!
-  source: RewardSource!
-  role: Bytes! # bytes32
-  account: Bytes! # address
-  sender: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RewardSource @entity(immutable: false) {
-  id: Bytes!
-  name: String!
-  totalNativeReleased: BigInt!
-  totalTokenReleased: BigInt!
-  totalDeposited: BigInt!
-  nativePayoutCount: BigInt!
-  tokenPayoutCount: BigInt!
-  payeeCount: BigInt!
-  lastUpdatedBlock: BigInt!
-  lastUpdatedTimestamp: BigInt!
-}
-
-type RewardAccount @entity(immutable: false) {
-  id: Bytes!
-  totalNativeReleased: BigInt!
-  totalTokenReleased: BigInt!
-  nativePayoutCount: BigInt!
-  tokenPayoutCount: BigInt!
-  lastUpdatedBlock: BigInt!
-  lastUpdatedTimestamp: BigInt!
-}
-
-type RewardAccountToken @entity(immutable: false) {
-  id: ID!
-  account: Bytes!
-  token: Bytes!
-  totalReleased: BigInt!
-  payoutCount: BigInt!
-  lastUpdatedBlock: BigInt!
-  lastUpdatedTimestamp: BigInt!
-}
-
-type RewardPayee @entity(immutable: false) {
-  id: ID!
-  source: RewardSource!
-  account: Bytes!
-  shares: BigInt!
-  addedBlock: BigInt!
-  addedTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
